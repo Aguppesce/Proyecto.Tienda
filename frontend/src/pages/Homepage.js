@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { FaWhatsapp } from "react-icons/fa";
+import { FaWhatsapp, FaArrowRight } from "react-icons/fa";
 import axios from "axios";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
-import { Pagination, Autoplay } from "swiper/modules";
+import { Pagination, Autoplay, Navigation } from "swiper/modules";
 import "../styles/Homepage.css";
 
 const Homepage = () => {
@@ -58,7 +58,8 @@ const Homepage = () => {
             spaceBetween={20}
             autoplay={{ delay: 2500, disableOnInteraction: false }}
             pagination={{ clickable: true }}
-            modules={[Pagination, Autoplay]}
+            navigation
+            modules={[Pagination, Autoplay, Navigation]}
             className="swiper-container"
           >
             {images.map((image) => (
@@ -72,6 +73,29 @@ const Homepage = () => {
         ) : (
           <p>No se encontraron imágenes o cargando imágenes...</p>
         )}
+      </section>
+
+      {/* Nueva sección de bienvenida */}
+      <section className="bienvenida">
+        <Swiper
+          modules={[Pagination, Navigation]}
+          spaceBetween={30}
+          slidesPerView={1}
+          pagination={{ clickable: true }}
+          navigation
+          className="mySwiper"
+        >
+          <SwiperSlide>
+            <div className="slide-content">
+              <h1>Bienvenido a nuestra tienda</h1>
+              <p>Descubre nuestros productos</p>
+              <button className="cta-button">
+                Explorar <FaArrowRight />
+              </button>
+            </div>
+          </SwiperSlide>
+          {/* Agrega más slides según necesites */}
+        </Swiper>
       </section>
 
       {/* Footer */}

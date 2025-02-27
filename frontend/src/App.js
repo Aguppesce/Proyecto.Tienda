@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Navbar from './components/Navbar';
-import Homepage from '../src/pages/Homepage';
+import Homepage from './pages/Homepage';
 import Home from './pages/Home';
 import Checkout from './pages/Checkout';
 import Contacto from './pages/Contacto';
@@ -55,9 +55,8 @@ function App() {
         <Navbar carrito={carrito} />
         <Routes>
           <Route path="/" element={<Homepage />} />
-          <Route path="/hombre" element={<Home agregarAlCarrito={agregarAlCarrito} carrito={carrito} />} />
-          <Route path="/mujer" element={<Home agregarAlCarrito={agregarAlCarrito} carrito={carrito} />} />
-          <Route path="/checkout" element={<Checkout items={carrito} />} />
+          <Route path="/home" element={<Home agregarAlCarrito={agregarAlCarrito} />} />
+          <Route path="/checkout" element={<Checkout />} />
           <Route path="/contacto" element={<Contacto />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
